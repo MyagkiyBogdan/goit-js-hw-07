@@ -25,20 +25,20 @@ const galleryItemsEl = galleryItems
 
 galleryEl.innerHTML = galleryItemsEl;
 
-const galleryLink = document.querySelectorAll(".gallery__link");
+// const galleryLink = document.querySelectorAll(".gallery__link");
 
-galleryLink.forEach(link => link.addEventListener("click", onClickPreventDefault));
+// galleryLink.forEach(link => link.addEventListener("click", onClickPreventDefault));
 
-function onClickPreventDefault(event) {
-  event.preventDefault();
-}
+// function onClickPreventDefault(event) {
+//   event.preventDefault();
+// }
 
 galleryEl.addEventListener("click", onGalleryElementClick);
 function onGalleryElementClick(event) {
   if (!event.target.classList.contains("gallery__image")) {
     return;
   }
-
+  event.preventDefault();
   const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}">
 `);
