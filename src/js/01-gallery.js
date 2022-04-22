@@ -44,6 +44,16 @@ function onGalleryElementClick(event) {
 `);
 
   instance.show();
+
+  if (instance.visible()) {
+    document.addEventListener("keydown", onEscClickCloseModal);
+  }
+  function onEscClickCloseModal(event) {
+    if (event.code === "Escape") {
+      instance.close();
+      document.removeEventListener("keydown", onEscClickCloseModal);
+    }
+  }
 }
 
 if ("loading" in HTMLImageElement.prototype) {
